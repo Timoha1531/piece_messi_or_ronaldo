@@ -23,8 +23,9 @@
     $pdo = new PDO("mysql:host=localhost;dbname=piece_messi_or_ronaldo;charset=utf8", "root", "");
     
     $router = new Router($twig, $pdo);
-    $router->add("/", MainController::class);
     $router->add("/Ronaldo", RonaldoController::class);
     $router->add("/man-object/(\d+)", objectsController::class); 
     $router->get_or_default(Controller404::class);
+    $router->add("/", MainController::class);
+    
     
