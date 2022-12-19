@@ -43,11 +43,7 @@ class Router {
 
             
             $path = parse_url($url, PHP_URL_PATH); 
-            echo $path;
-
-            echo "<pre>"; // чтобы красивее выводил
-            print_r($_GET); // выведем содержимое $_GET
-            echo "</pre>";
+           
             $matches=[];
         $controller = $default_controller;
         

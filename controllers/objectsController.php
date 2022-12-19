@@ -1,5 +1,4 @@
 <?php
-echo 123;
 require_once "BasePieceTwigController.php"; 
 class objectsController extends BasePieceTwigController {
     public $template = "Object.twig"; // указываем шаблон
