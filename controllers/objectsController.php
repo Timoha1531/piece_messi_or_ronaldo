@@ -8,18 +8,19 @@ class objectsController extends BasePieceTwigController {
     public function getContext(): array
     {
 
-        echo I_BANANA;
+        
         $context = parent::getContext();
         
         
         if (isset($_GET['show']) && ($_GET['show'] == 'image')) {
             $query = $this->pdo->prepare("SELECT image,descriptions, id FROM man_objects WHERE id=".$this-> params['id']);
             $this->template = "imageObject.twig"; 
+            
             $query -> execute();
         } else if (isset($_GET['show']) && $_GET['show'] == 'info') {
             $query = $this->pdo->prepare("SELECT info,descriptions, id FROM man_objects WHERE id=".$this-> params['id']);
             $this->template = "infoObject.twig"; 
-           
+            
             $query -> execute();
 
         }else{
@@ -29,7 +30,7 @@ class objectsController extends BasePieceTwigController {
         $query = $this->pdo->query("SELECT id, image, info FROM man_objects WHERE id=".$this->params['id']);
      
        
-        $context['piece_messi_or_ronaldo'] = $query->fetch();
+        $context['object'] = $query->fetch();
 
         return $context;
     }
