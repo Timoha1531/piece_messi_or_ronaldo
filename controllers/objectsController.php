@@ -1,23 +1,35 @@
 <?php
-
-class objectsController extends TwigBaseController {
+echo 123;
+require_once "BasePieceTwigController.php"; 
+class objectsController extends BasePieceTwigController {
     public $template = "Object.twig"; // указываем шаблон
+
 
     public function getContext(): array
     {
+
+        echo I_BANANA;
         $context = parent::getContext();
         
         
-        // готовим запрос к БД, допустим вытащим запись по id=3
-        // тут уже указываю конкретные поля, там более грамотно
-        $query = $this->pdo->prepare("SELECT descriptions, id FROM man_objects WHERE id= :my_id");
-        $query->bindValue("my_id", $this->params['id']);
-        $query->execute(); 
-        
-        $data = $query->fetch();
-        
-        // передаем описание из БД в контекст
-        $context['descriptions'] = $data['descriptions'];
+        if (isset($_GET['show']) && ($_GET['show'] == 'image')) {
+            $query = $this->pdo->prepare("SELECT image,descriptions, id FROM man_objects WHERE id=".$this-> params['id']);
+            $this->template = "imageObject.twig"; 
+            $query -> execute();
+        } else if (isset($_GET['show']) && $_GET['show'] == 'info') {
+            $query = $this->pdo->prepare("SELECT info,descriptions, id FROM man_objects WHERE id=".$this-> params['id']);
+            $this->template = "infoObject.twig"; 
+           
+            $query -> execute();
+
+        }else{
+            $query = $this->pdo->query("SELECT * FROM man_objects");
+        }
+      
+        $query = $this->pdo->query("SELECT id, image, info FROM man_objects WHERE id=".$this->params['id']);
+     
+       
+        $context['piece_messi_or_ronaldo'] = $query->fetch();
 
         return $context;
     }

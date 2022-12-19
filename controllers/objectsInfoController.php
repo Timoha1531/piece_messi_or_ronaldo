@@ -1,6 +1,6 @@
 <?php
-
-class objectsInfoController extends TwigBaseController {
+require_once "BasePieceTwigController.php"; 
+class objectsInfoController extends BasePieceTwigController {
     public $template = "infoObject.twig"; // указываем шаблон
 
     public function getContext(): array

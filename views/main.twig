@@ -6,7 +6,7 @@
 
 
 <div class="row">
-  {% for object in man_objects %}
+{% for object in man_objects %}
 <div class="col p-2">
 <div class="card d-flex justify-content-center align-items-center p-2" style="height: 350px;width: 250px">
   <img src="{{object.image}}" style="height: 220px;width:180px;object-fit:cover" class="card-img-top" alt="...">
@@ -14,8 +14,8 @@
     
     <div class="row d-flex ">
       <div class="col d-flex justify-content-center align-items-center">
-    <a href="/man-object/{{object.id}}/info" class="btn btn-primary m-1">Описание</a>
-    <a href="/man-object/{{object.id}}/image" class="btn btn-primary m-1">Картинка</a>
+    <a href="/man-object/{{object.id}}/?show=info" class="btn btn-primary m-1">Описание</a>
+    <a href="/man-object/{{object.id}}/?show=image" class="btn btn-primary m-1">Картинка</a>
   </div>
   <h5 class="card-title d-flex text-center justify-content-center align-items-center "href="/{{object.url_title}}">{{object.title}}</h5>
   </div>
