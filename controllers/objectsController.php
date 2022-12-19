@@ -15,7 +15,6 @@ class objectsController extends BasePieceTwigController {
         if (isset($_GET['show']) && ($_GET['show'] == 'image')) {
             $query = $this->pdo->prepare("SELECT image,descriptions, id FROM man_objects WHERE id=".$this-> params['id']);
             $this->template = "imageObject.twig"; 
-            
             $query -> execute();
         } else if (isset($_GET['show']) && $_GET['show'] == 'info') {
             $query = $this->pdo->prepare("SELECT info,descriptions, id FROM man_objects WHERE id=".$this-> params['id']);
@@ -24,11 +23,11 @@ class objectsController extends BasePieceTwigController {
             $query -> execute();
 
         }else{
-            $query = $this->pdo->query("SELECT * FROM man_objects");
+            $query = $this->pdo->query("SELECT id, image, info FROM man_objects WHERE id=".$this->params['id']);
+     
         }
       
-        $query = $this->pdo->query("SELECT id, image, info FROM man_objects WHERE id=".$this->params['id']);
-     
+        
        
         $context['object'] = $query->fetch();
 
