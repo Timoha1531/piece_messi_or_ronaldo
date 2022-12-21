@@ -1,19 +1,57 @@
 {% extends "__layout.twig" %}
 
 {% block content %}
-    Поиск
+   <h1>Поиск</h1> 
+   <div class="row">
+    <div class="col">
+        Тип
+    </div>
+    <div class="col">
+        Название
+    </div>
+    <div class="col">
+        Описание
+    </div>
+    <div class="col">
+    </div>
 
-    <form action="">
-        <select name="type">
-            <option value="Messi">Messi</option>
-            <option value="Ronaldo">Ronaldo</option>
-        </select>
+   </div>
 
+   <form action="">
+    <div class="row">
+    <div class="col">
         
-        <label>Название <input type="text" name="title"></label>
+            <select name="type">
+                <option value="All">Все</option>
+				{% for type in types %}
+					<option value="{{type.type}}">{{ type.type }}</option>
+				{% endfor %}
+            </select>
+        
+    </div>
+    <div class="col">
+        
+                <label> <input type="text" name="title"></label>
+        
+    </div>
+    <div class="col">
+        
+            <label> <input type="text" name="info"></label>
+        
+        
+    </div>
+    <div class="col">
+        
+            <button type="submit">Найти</button>
+    
+    </div>
+</div>
 
-        <button type="submit">Найти</button>
-    </form>
+   </form>
+   
+    
+<div class="row">
+    <div class="col">
     <div class="list-group mt-4 col-3">
 		{% for object in objects %}
 			<a href="/man-object/{{object.id}}" class="list-group-item list-group-item-action">
@@ -22,5 +60,7 @@
 		{% endfor %}
 
 	</div>
+</div>
 
+</div>
 {% endblock %}
