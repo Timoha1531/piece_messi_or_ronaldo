@@ -1,0 +1,26 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+    Поиск
+
+    <form action="">
+        <select name="type">
+            <option value="Messi">Messi</option>
+            <option value="Ronaldo">Ronaldo</option>
+        </select>
+
+        
+        <label>Название <input type="text" name="title"></label>
+
+        <button type="submit">Найти</button>
+    </form>
+    <div class="list-group mt-4 col-3">
+		{% for object in objects %}
+			<a href="/man-object/{{object.id}}" class="list-group-item list-group-item-action">
+				{{object.title}}
+			</a>
+		{% endfor %}
+
+	</div>
+
+{% endblock %}
