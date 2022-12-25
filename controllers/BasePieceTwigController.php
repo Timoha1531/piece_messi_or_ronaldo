@@ -6,7 +6,7 @@
             
             
             
-            $query = $this->pdo->query("SELECT DISTINCT type FROM man_objects  ORDER BY 1");
+            $query = $this->pdo->query("SELECT DISTINCT name FROM man_type  ORDER BY 1");
             $types = $query->fetchAll();
             
             $context['types'] = $types;
