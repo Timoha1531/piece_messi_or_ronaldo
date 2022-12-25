@@ -16,7 +16,7 @@ class SearchController extends BasePieceTwigController {
 SELECT id,title,info
 FROM man_objects
 WHERE (:title = '' OR title like CONCAT('%',:title,'%'))
-    AND (type=:type OR :type='All') AND (:info='' OR info like CONCAT('%', :info, '%'))
+    AND (type_id=:type OR :type='All') AND (:info='' OR info like CONCAT('%', :info, '%'))
 EOL;
 $query=$this->pdo->prepare($sql);
 $query->bindValue("title", $title);
