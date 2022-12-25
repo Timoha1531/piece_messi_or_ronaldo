@@ -26,7 +26,7 @@ class ManObjectCreateController extends BasePieceTwigController {
 
         // создаем текст запрос
         $sql = <<<EOL
-        INSERT INTO man_objects(title,image, descriptions,info, type )
+        INSERT INTO man_objects(title,image, descriptions,info, type_id )
         VALUES(:title, :image_url, :description, :info, :type) -- передаем переменную в запрос
         EOL;
 

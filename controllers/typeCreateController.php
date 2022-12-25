@@ -19,8 +19,6 @@ class typeCreateController extends BasePieceTwigController {
         $sql = <<<EOL
         INSERT INTO man_type(name)
         VALUES(:type)
-        INSERT INTO man_objects(type)
-        VALUES(:)
         EOL;
 
         $query = $this->pdo->prepare($sql);
