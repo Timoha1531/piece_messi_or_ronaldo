@@ -20,9 +20,12 @@
         </div>
         <div class="col-4">
             <label class="form-label">Тип</label>
-            <select class="form-control" name="type">
-                <option value="Messi">Messi</option>
-                <option value="Ronaldo">Ronaldo</option>
+            
+            <select class="form-control" name="type"> 
+                {% for type in types %}   
+                <option value="{{type.id}}">{{type.name}}</option>
+                {% endfor %}
+
             </select>
         </div>
         <div class="mb-3">

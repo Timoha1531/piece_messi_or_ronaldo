@@ -8,7 +8,7 @@ class MainController extends BasePieceTwigController {
     {
     
         $context = parent::getContext();
-
+       
         if (isset($_GET['type'])) {
             $query = $this->pdo->prepare("SELECT * FROM man_objects WHERE type= :type");
             $query->bindValue("type",$_GET['type']);

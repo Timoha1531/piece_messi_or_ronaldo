@@ -6,10 +6,11 @@
             
             
             
-            $query = $this->pdo->query("SELECT DISTINCT name FROM man_type  ORDER BY 1");
+            $query = $this->pdo->query("SELECT id, name FROM man_type");
             $types = $query->fetchAll();
             
             $context['types'] = $types;
+            
 
             
     

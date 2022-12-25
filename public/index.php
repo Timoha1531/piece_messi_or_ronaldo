@@ -6,6 +6,7 @@
     require_once "../controllers/objectsController.php";
     require_once "../controllers/SearchController.php";
     require_once "../controllers/ManObjectCreateController.php";
+    require_once "../controllers/typeCreateController.php";
     require_once "../controllers/Controller404.php";
 
     
@@ -25,6 +26,7 @@
     $router->add("/man-object/(?P<id>\d+)", objectsController::class); 
     $router->add("/search", SearchController::class);
     $router->add("/man-object/create", ManObjectCreateController::class);
+    $router->add("/man-object/create_type", typeCreateController::class);
     $router->get_or_default(Controller404::class);
     
     

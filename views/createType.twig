@@ -1,0 +1,25 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+    <h1>Добавление Типов Футболистов</h1>
+    <hr>
+    {% if message %}
+<div class="alert alert-info">
+{{message}}
+</div>
+{% endif %}
+    <form action="" enctype="multipart/form-data" method="POST" class="row g-3">
+        <div class="col-4">
+            <label class="form-label">Название типа</label>
+            <input type="text" class="form-control" name="type_name">
+        </div>
+        <div class="col-4" style="padding: 30px;">
+            <button type="submit" class="btn btn-primary col-4">Добавить</button>
+           
+        </div>
+            
+        
+    
+    </form>
+
+{% endblock %}

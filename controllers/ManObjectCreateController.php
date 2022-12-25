@@ -40,6 +40,7 @@ class ManObjectCreateController extends BasePieceTwigController {
         
         $context['message'] = 'Вы успешно создали объект';
         $context['id'] = $this->pdo->lastInsertId(); // получаем id нового добавленного объекта
+        $context['names'] = $query->fetchAll();
 
         $this->get($context);
     }
